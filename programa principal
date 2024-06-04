@@ -1,0 +1,38 @@
+public static void main(String[] args) {
+	Locale.setDefault(Locale.US); 
+	Scanner sc = new Scanner(System.in);
+
+	
+	  System.out.println("Digite o número da sua conta");
+	  System.out.print("número: ");
+	  int number = sc.nextInt();
+	  System.out.print("Titular: ");
+	  sc.nextLine();
+	  String holder = sc.nextLine();
+	  System.out.print("saldo inicial: ");
+	  double balance = sc.nextDouble();
+	  System.out.print("Limite de saque: ");
+	  double withdrawlimit = sc.nextDouble();
+	  
+	  account acc = new account(number, holder,balance, withdrawlimit);
+	  
+	  System.out.println();
+	  System.out.println("informe uma quantia pra sacar: ");
+	  double amount = sc.nextDouble(); 
+	  
+	  acc.withdraw(amount);
+	  System.out.println(
+			  );
+	
+	  try {
+		  acc.withdraw(amount);
+		  System.out.printf("novo saldo: %.2f%n", acc.getBalance());
+	    }
+	  catch(Businessexception e) {
+		  System.out.println(e.getMessage());
+	  }
+	  
+	sc.close();
+	}
+
+}
